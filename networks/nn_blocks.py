@@ -22,7 +22,7 @@ def self_attn_block(inp, nc, squeeze_factor=8):
     
     f = Conv2D(nc//squeeze_factor, 1, kernel_regularizer='l2')(x)
     g = Conv2D(nc//squeeze_factor, 1, kernel_regularizer='l2')(x)
-    h = Conv2D(nc, 1, kernel_regularizer=regularizers.l2(w_l2))(x)
+    h = Conv2D(nc, 1, kernel_regularizer='l2')(x)
     
     shape_f = f.get_shape().as_list()
     shape_g = g.get_shape().as_list()
